@@ -36,7 +36,7 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
       - name: Build
-        run: bun build --base=/bebou/
+        run: bun run build --base=/bebou/
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
