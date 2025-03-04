@@ -8,6 +8,9 @@ attacks and thus decided to make one myself and share it for others
 in need. I do not claim to be a doctor or anything but it does help
 me !
 
+The app only works on mobile for now. The UI is kinda trimmed since
+I have zero knowledge on svg !
+
 ## TODO List
 
 - [x] Breathing timer
