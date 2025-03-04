@@ -1,0 +1,6 @@
+#root {
+  @apply h-screen flex items-center content-center overflow-hidden;
+  max-width: 1280px;
+  display: flex;
+  text-align: center;
+}
