@@ -18,7 +18,7 @@ function App() {
       <div className="absolute top-10 md:top-20 left-0 right-0 z-10 self-center p-8">
         {isRunning ? (
           <div className="flex flex-col text-6xl items-center">
-            <strong>
+            <strong className="breathing-instruction__text">
               {phase % 4 == 1 ? "Inspirez" : phase % 4 == 3 ? "Expirez" : "..."}
             </strong>
             <Button

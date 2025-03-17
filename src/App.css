@@ -4,3 +4,19 @@
   display: flex;
   text-align: center;
 }
+
+.breathing-instruction__text {
+  animation: ripple 1s infinite ease-in-out;
+}
+
+@keyframes ripple {
+  0% {
+    text-shadow: 0 0 300px var(--primary);
+  }
+  20% {
+    text-shadow: 0 0 80px var(--primary);
+  }
+  100% {
+    text-shadow: 0 0 300px var(--primary);
+  }
+}
