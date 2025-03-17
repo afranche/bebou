@@ -1,5 +1,6 @@
 #root {
   @apply h-screen flex items-center content-center overflow-hidden;
+
   display: flex;
   text-align: center;
 }
