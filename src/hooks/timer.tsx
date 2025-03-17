@@ -7,12 +7,14 @@ interface TimerConfigState {
   isUsingShorterPeriods: boolean;
   globalTimerTarget: number;
   isGlobalTimerEnabled: boolean;
+  isWarmupEnabled: boolean;
   isBackgroundNoiseEnabled: boolean;
   noise: "white" | "pink" | "brown";
   setPeriod: (newPeriod: number) => void;
   setGlobalTimerTarget: (newPeriod: number) => void;
   toggleShorterPeriods: () => void;
   toggleGlobalTimer: () => void;
+  toggleWarmup: () => void;
   toggleBackgroundNoise: () => void;
   selectBackgroundNoise: (newNoise: "white" | "pink" | "brown") => void;
 }
@@ -38,6 +40,7 @@ export const useTimerConfigStore = create<TimerConfigState>()(
         isUsingShorterPeriods: true,
         globalTimerTarget: 5,
         isGlobalTimerEnabled: true,
+        isWarmupEnabled: true,
         isBackgroundNoiseEnabled: false,
         noise: "white",
 
@@ -59,6 +62,11 @@ export const useTimerConfigStore = create<TimerConfigState>()(
         toggleGlobalTimer: () =>
           set((state) => ({
             isGlobalTimerEnabled: !state.isGlobalTimerEnabled,
+          })),
+
+        toggleWarmup: () =>
+          set((state) => ({
+            isWarmupEnabled: !state.isWarmupEnabled,
           })),
 
         toggleBackgroundNoise: () =>
