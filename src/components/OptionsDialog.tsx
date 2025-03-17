@@ -113,7 +113,9 @@ const OptionsDialog: React.FC<{ children: React.ReactNode }> = ({
                     >
                       Arrêter après
                     </label>
-                    <p className="text-xs text-muted-foreground">6 minutes</p>
+                    <p className="text-xs text-muted-foreground">
+                      {globalTimerTarget} minutes
+                    </p>
                   </div>
                 </li>
               ) : (
