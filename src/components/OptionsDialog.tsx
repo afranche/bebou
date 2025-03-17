@@ -23,6 +23,9 @@ const OptionsDialog: React.FC<{ children: React.ReactNode }> = ({
     toggleGlobalTimer,
     globalTimerTarget,
     setGlobalTimerTarget,
+    isWarmupEnabled,
+    toggleWarmup,
+    noise,
     isBackgroundNoiseEnabled,
     toggleBackgroundNoise,
     selectBackgroundNoise,
@@ -60,6 +63,23 @@ const OptionsDialog: React.FC<{ children: React.ReactNode }> = ({
               </li>
               <li className="flex">
                 <Checkbox
+                  id="warmup"
+                  checked={isWarmupEnabled}
+                  onCheckedChange={() => {
+                    toggleWarmup();
+                  }}
+                />
+                <div className="grid gap-1.5 leading-none text-right grow">
+                  <label
+                    htmlFor="warmup"
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    Échauffement ?
+                  </label>
+                </div>
+              </li>
+              <li className="flex">
+                <Checkbox
                   id="timer"
                   checked={isGlobalTimerEnabled}
                   onCheckedChange={() => {
@@ -80,7 +100,8 @@ const OptionsDialog: React.FC<{ children: React.ReactNode }> = ({
                   <Slider
                     id="timer-slider"
                     className="w-32"
-                    defaultValue={[5]}
+                    value={[globalTimerTarget]}
+                    onValueChange={(value) => setGlobalTimerTarget(value[0])}
                     min={1}
                     max={6}
                     step={1}
@@ -118,15 +139,27 @@ const OptionsDialog: React.FC<{ children: React.ReactNode }> = ({
               {isBackgroundNoiseEnabled ? (
                 <li className="grid grid-cols-3 gap-2">
                   <Button
+                    aria-selected={noise === "white"}
                     className="text-purple-950 bg-purple-50 border border-purple-950"
+                    onClick={() => selectBackgroundNoise("white")}
                     size="lg"
                   >
                     Blanc
                   </Button>
-                  <Button className="text-purple-950 bg-pink-400" size="lg">
+                  <Button
+                    aria-selected={noise === "pink"}
+                    onClick={() => selectBackgroundNoise("pink")}
+                    className="text-purple-950 bg-pink-400"
+                    size="lg"
+                  >
                     Rose
                   </Button>
-                  <Button className="text-purple-50 bg-yellow-950" size="lg">
+                  <Button
+                    aria-selected={noise === "brown"}
+                    onClick={() => selectBackgroundNoise("brown")}
+                    className="text-purple-50 bg-yellow-950"
+                    size="lg"
+                  >
                     Brun
                   </Button>
                 </li>
