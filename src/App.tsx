@@ -43,9 +43,9 @@ function App() {
                 <span>Démarrer</span>
               </Button>
               <OptionsDialog>
-                <Button size="lg" variant="secondary" disabled>
+                <Button size="lg" variant="secondary">
                   <Bolt />
-                  <span>Options (WIP)</span>
+                  <span>Options</span>
                 </Button>
               </OptionsDialog>
             </div>
